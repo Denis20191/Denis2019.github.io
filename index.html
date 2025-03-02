@@ -39,9 +39,12 @@
                 const username = document.getElementById("username").value;
                 const password = document.getElementById("password").value;
                 const users = await loadCSV();
-
-                let validUser = users.some(row => row[2] === username && row[1] === password);
-
+            
+                // Ignora la prima riga (intestazione)
+                users.shift();
+            
+                let validUser = users.some(row => row[2].trim() === username && row[1].trim() === password);
+            
                 if (validUser) {
                     document.getElementById("login-container").style.display = "none";
                     document.getElementById("dashboard").style.display = "block";

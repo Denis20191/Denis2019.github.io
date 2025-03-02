@@ -40,9 +40,6 @@
                 const password = document.getElementById("password").value;
                 const users = await loadCSV();
             
-                // Ignora la prima riga (intestazione)
-                users.shift();
-            
                 let validUser = users.some(row => row[2].trim() === username && row[1].trim() === password);
             
                 if (validUser) {

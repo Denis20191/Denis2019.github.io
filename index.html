@@ -40,7 +40,7 @@
                 const password = document.getElementById("password").value;
                 const users = await loadCSV();
             
-                let validUser = users.some(row => row[2].trim() === username && row[1].trim() === password);
+                let validUser = users.some(row => row[0].trim() === username && row[1].trim() === password);
             
                 if (validUser) {
                     document.getElementById("login-container").style.display = "none";
